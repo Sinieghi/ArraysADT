@@ -1,0 +1,14 @@
+E:\DOC\Data_structure-algorithms\code_snippet\ArraySADT\bin\Debug\net8.0\ArraysADT.exe
+E:\DOC\Data_structure-algorithms\code_snippet\ArraySADT\bin\Debug\net8.0\ArraysADT.deps.json
+E:\DOC\Data_structure-algorithms\code_snippet\ArraySADT\bin\Debug\net8.0\ArraysADT.runtimeconfig.json
+E:\DOC\Data_structure-algorithms\code_snippet\ArraySADT\bin\Debug\net8.0\ArraysADT.dll
+E:\DOC\Data_structure-algorithms\code_snippet\ArraySADT\bin\Debug\net8.0\ArraysADT.pdb
+E:\DOC\Data_structure-algorithms\code_snippet\ArraySADT\obj\Debug\net8.0\ArraysADT.GeneratedMSBuildEditorConfig.editorconfig
+E:\DOC\Data_structure-algorithms\code_snippet\ArraySADT\obj\Debug\net8.0\ArraysADT.AssemblyInfoInputs.cache
+E:\DOC\Data_structure-algorithms\code_snippet\ArraySADT\obj\Debug\net8.0\ArraysADT.AssemblyInfo.cs
+E:\DOC\Data_structure-algorithms\code_snippet\ArraySADT\obj\Debug\net8.0\ArraysADT.csproj.CoreCompileInputs.cache
+E:\DOC\Data_structure-algorithms\code_snippet\ArraySADT\obj\Debug\net8.0\ArraysADT.dll
+E:\DOC\Data_structure-algorithms\code_snippet\ArraySADT\obj\Debug\net8.0\refint\ArraysADT.dll
+E:\DOC\Data_structure-algorithms\code_snippet\ArraySADT\obj\Debug\net8.0\ArraysADT.pdb
+E:\DOC\Data_structure-algorithms\code_snippet\ArraySADT\obj\Debug\net8.0\ArraysADT.genruntimeconfig.cache
+E:\DOC\Data_structure-algorithms\code_snippet\ArraySADT\obj\Debug\net8.0\ref\ArraysADT.dll
