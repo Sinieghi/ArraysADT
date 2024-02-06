@@ -33,9 +33,29 @@
             //here a good approach for dealing with search.
             // System.Console.WriteLine(array.LinearSearchMoveToHead(3));
             //those 2 is very interesting how they works
-            System.Console.WriteLine(array.BinarySearchLoop(15));
-            System.Console.WriteLine(array.BinarySearchRecursive(0, array.Size, 15));
+            // System.Console.WriteLine(array.BinarySearchLoop(15));
+            // System.Console.WriteLine(array.BinarySearchRecursive(0, array.Size, 15));
             // array.INSERT(0, 10);
+
+            // System.Console.WriteLine("set");
+            // array.Set(10, 5552);
+            // System.Console.Write("get ");
+            // System.Console.WriteLine(array.Get(10));
+            // System.Console.WriteLine("Max ");
+            // System.Console.WriteLine(array.Max());
+            // System.Console.WriteLine("Min ");
+            // System.Console.WriteLine(array.Min());
+            // System.Console.WriteLine("Average ");
+            // System.Console.WriteLine(array.Avg());
+
+
+
+
+            // System.Console.WriteLine("Set will be printed");
+
+
+            array.Reverse(ref array);
+
             array.Display();
         }
 

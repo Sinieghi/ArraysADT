@@ -12,3 +12,4 @@ E:\DOC\Data_structure-algorithms\code_snippet\ArraySADT\obj\Debug\net8.0\refint\
 E:\DOC\Data_structure-algorithms\code_snippet\ArraySADT\obj\Debug\net8.0\ArraysADT.pdb
 E:\DOC\Data_structure-algorithms\code_snippet\ArraySADT\obj\Debug\net8.0\ArraysADT.genruntimeconfig.cache
 E:\DOC\Data_structure-algorithms\code_snippet\ArraySADT\obj\Debug\net8.0\ref\ArraysADT.dll
+e:\DOC\Data_structure-algorithms\code_snippet\ArraysADT\obj\Debug\net8.0\ArraysADT.sourcelink.json

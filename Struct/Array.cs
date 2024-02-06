@@ -122,14 +122,10 @@ unsafe struct Array
     {
         try
         {
-            System.Console.WriteLine((int)x);
-            System.Console.WriteLine((int)y);
             int temp;
             temp = (int)x;
             x = y;
             y = (int*)temp;
-
-
         }
         catch (System.Exception e)
         {
@@ -160,5 +156,63 @@ unsafe struct Array
         else if (key < (int)A[mid]) return BinarySearchRecursive(l, mid - 1, key);
         else
             return BinarySearchRecursive(mid + 1, h, key);
+    }
+
+    public int Get(int index)
+    {
+        if (index > A.Length) return -1;
+        return (int)A[index];
+    }
+    public void Set(int index, int x)
+    {
+        if (index < 0 || index > A.Length) return;
+        A[index] = (int*)x;
+    }
+    public int Sum()
+    {
+        int total = 0;
+        for (int i = 0; i < A.Length; i++)
+        {
+            total += (int)A[i];
+        }
+
+        return total;
+    }
+    public float Avg()
+    {
+        return (float)Sum() / A.Length;
+    }
+    public int Max()
+    {
+        int max = (int)A[0];
+        int i;
+        for (i = 0; i < A.Length; i++)
+        {
+            if (max < (int)A[i]) max = (int)A[i];
+        }
+        return max;
+    }
+
+    public int Min()
+    {
+        int min = (int)A[0];
+        int i;
+        for (i = 0; i < A.Length; i++)
+        {
+            if (min > (int)A[i]) min = (int)A[i];
+        }
+        return min;
+    }
+    public readonly void Reverse(ref Array array)
+    {
+        int j, i;
+        for (i = 0, j = A.Length - 1; j > i; i++, j--)
+        {
+            // temp = (int)array.A[i];
+            // array.A[i] = array.A[j];
+            // array.A[j] = (int*)temp;
+
+            Swap(ref array.A[i], ref array.A[j]);
+        }
     }
 }
