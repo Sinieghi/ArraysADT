@@ -4,7 +4,7 @@
     static void Main(string[] args)
     {
         int[] a = [1, 5, 6, 4, 8];
-        Array array = new() { Length = 20, Size = 20 };
+
         unsafe
         {
         };
@@ -14,6 +14,10 @@
 
         unsafe
         {
+            Array array = new() { Length = 16, Size = 20 };
+            array.A = new int*[20];
+            Array arrayB = new() { Length = 20, Size = 20 };
+            arrayB.A = new int*[20];
             //     array.Length = 0;
             //     System.Console.WriteLine("Enter the num of numbers");
             //     n = int.Parse(Console.ReadLine());
@@ -27,6 +31,7 @@
             // }
             // array.Append(ref array, 10);
             array.PopulateArr(&array);
+            array.PopulateArr(&arrayB);
             // System.Console.WriteLine(array.DELETE(2));
             // System.Console.WriteLine(array.LinearSearch(3));
             // System.Console.WriteLine(array.LinearSearchTransposition(3));
@@ -53,10 +58,32 @@
 
             // System.Console.WriteLine("Set will be printed");
 
+            // int u = array.DELETE(ref array, 10);
+            // array.Display();
+            // System.Console.WriteLine();
+            // //this insert works in case the input bigger than the elements inside.
+            array.InsertOnSorted(&array, 15);
+            array.InsertOnSorted(&array, 33);
+            array.InsertOnSorted(&array, 55);
+            // array.InsertOnSorted(&array, -55);
+            // array.Set(6, -5552);
+            // array.Set(8, 50);
+            // array.Set(11, -33);
+            // //this boy check id the array is sorted
+            // System.Console.WriteLine(array.CheckIfIsSorted(ref array));
+            // array.Rearrange(ref array);
+            // array.Display();
 
-            array.Reverse(ref array);
-
-            array.Display();
+            //you should use parameter to pass the third array, but i will use for time save
+            System.Console.WriteLine(array.A.Length);
+            Array arrayC = new()
+            {
+                A = new int*[array.Length + arrayB.A.Length]
+            };
+            // array.Merge(ref array, ref arrayB, ref arrayC);
+            // array.Union(ref array, ref arrayB, ref arrayC);
+            array.Intersection(ref array, ref arrayB, ref arrayC);
+            array.Display(ref arrayC);
         }
 
 

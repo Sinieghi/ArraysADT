@@ -4,7 +4,7 @@ unsafe struct Array
     //i'm using pointers but just ignore. All the methods of an array
     //is here.
 
-    public int*[] A { get; set; } = new int*[20];
+    public int*[] A { get; set; }
 
     public Array()
     {
@@ -35,19 +35,19 @@ unsafe struct Array
         Length++;
     }
 
-    public int DELETE(int index)
+    public int DELETE(ref Array array, int index)
     {
         //min O(1)
         //max O(n)
-        if (index > Length) return -1;
+        if (index > array.Length) return -1;
         int x;
         int i;
-        x = (int)A[index];
-        for (i = index; i < Length - 1; i++)
+        x = (int)array.A[index];
+        for (i = index; i < array.Length - 1; i++)
         {
-            A[i] = A[i + 1];
+            array.A[i] = array.A[i + 1];
         }
-        Length--;
+        array.Length--;
         return x;
     }
 
@@ -59,12 +59,12 @@ unsafe struct Array
         Length++;
     }
 
-    public void Display()
+    public void Display(ref Array array)
     {
         int i;
-        for (i = 0; i < Length; i++)
+        for (i = 0; i < array.Length; i++)
         {
-            System.Console.Write((int)A[i]);
+            System.Console.Write((int)array.A[i]);
             System.Console.Write(" ");
         }
     }
@@ -215,4 +215,139 @@ unsafe struct Array
             Swap(ref array.A[i], ref array.A[j]);
         }
     }
+
+    public void Rotate(ref Array array)
+    {
+        int j = A.Length - 1, i = 0, temp;
+        // temp = (int)array.A[i];
+        // array.A[i] = array.A[j];
+        // array.A[j] = (int*)temp;
+        Swap(ref array.A[i], ref array.A[j]);
+
+    }
+
+    public void InsertOnSorted(Array* array, int x)
+    {
+
+        if (array->Length == array->Size) return;
+        int i = array->Length - 1;
+        while (i >= 0 && (int)array->A[i] > x)
+        {
+            array->A[i + 1] = array->A[i];
+            i--;
+        }
+        array->A[i + 1] = (int*)x;
+        array->Length++;
+    }
+
+    public bool CheckIfIsSorted(ref Array array)
+    {
+        //O(n)
+        for (int i = 0; i < array.Length - 1; i++)
+        {
+            if ((int)array.A[i] > (int)array.A[i + 1])
+                return false;
+        }
+        return true;
+    }
+
+    public void Rearrange(ref Array array)
+    {
+        //O(n)
+        int i = 0, j = A.Length - 1;
+        while (i < j)
+        {
+            while ((int)array.A[i] < 0)
+            {
+                i++;
+            }
+            while ((int)array.A[j] >= 0)
+            {
+                j--;
+            }
+            if (i < j)
+                Swap(ref array.A[i], ref array.A[j]);
+        }
+    }
+
+    public void Merge(ref Array arrayA, ref Array arrayB, ref Array arrayC)
+    {
+        // 0 = teta
+        // 0(n + m)
+        int m = arrayA.A.Length;
+        int n = arrayB.A.Length;
+        int i = 0, j = 0, k = 0;
+        while (i < m && j < n)
+        {
+            if (arrayA.A[i] < arrayB.A[j])
+                arrayC.A[k++] = arrayA.A[i++];
+            else
+                arrayC.A[k++] = arrayB.A[j++];
+        }
+        //append remaining elements, always 1 will be left 
+        for (; i < n; i++)
+            arrayC.A[k++] = arrayA.A[i];
+        for (; i < m; i++)
+            arrayC.A[k++] = arrayB.A[i];
+
+        arrayC.Length = arrayA.Length + arrayB.Length;
+        arrayC.Size = arrayA.Size + arrayB.Size;
+
+
+    }
+
+    public void Union(ref Array arrayA, ref Array arrayB, ref Array arrayC)
+    {
+        // 0 = teta
+        // 0(n + m)
+        int m = arrayA.A.Length;
+        int n = arrayB.A.Length;
+        int i = 0, j = 0, k = 0;
+        while (i < m && j < n)
+        {
+            if (arrayA.A[i] < arrayB.A[j])
+                arrayC.A[k++] = arrayA.A[i++];
+            else if (arrayB.A[j] < arrayA.A[i])
+                arrayC.A[k++] = arrayB.A[j++];
+            else
+            {
+                arrayC.A[k++] = arrayA.A[i++];
+                j++;
+            }
+        }
+        //append remaining elements, always 1 will be left 
+        for (; i < n; i++)
+            arrayC.A[k++] = arrayA.A[i];
+        for (; i < m; i++)
+            arrayC.A[k++] = arrayB.A[i];
+
+        arrayC.Length = k;
+        arrayC.Size = arrayA.Size + arrayB.Size;
+    }
+
+    public void Intersection(ref Array arrayA, ref Array arrayB, ref Array arrayC)
+    {
+        // 0 = teta
+        // 0(n + m)
+        int m = arrayA.A.Length;
+        int n = arrayB.A.Length;
+        int i = 0, j = 0, k = 0;
+        while (i < m && j < n)
+        {
+            if (arrayA.A[i] < arrayB.A[j])
+                i++;
+            else if (arrayB.A[j] < arrayA.A[i])
+                j++;
+            else if (arrayA.A[i] == arrayB.A[j])
+            {
+                arrayC.A[k++] = arrayA.A[i++];
+                j++;
+            }
+        }
+        arrayC.Length = k;
+        arrayC.Size = arrayA.Size + arrayB.Size;
+    }
+
+
+    //I HAVE TO MAKE SHIFT AND ROTATE STILL!!!!!!!!!!!!!!!!
 }

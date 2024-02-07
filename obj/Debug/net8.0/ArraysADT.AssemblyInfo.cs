@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ArraysADT")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4faf27cf92d82ffc291dff707dcf3054e433756d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b612ecf45e14fe2abbd4614628b6e66db1e84c45")]
 [assembly: System.Reflection.AssemblyProductAttribute("ArraysADT")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ArraysADT")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
