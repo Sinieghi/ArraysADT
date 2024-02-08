@@ -218,11 +218,26 @@ unsafe struct Array
 
     public void Rotate(ref Array array)
     {
-        int j = A.Length - 1, i = 0, temp;
+        int j = array.Length - 1, i = 0, temp;
         // temp = (int)array.A[i];
         // array.A[i] = array.A[j];
         // array.A[j] = (int*)temp;
+
         Swap(ref array.A[i], ref array.A[j]);
+    }
+
+    public void Shift(ref Array array)
+    {
+
+
+        int i;
+        for (i = 0; i < array.Length - 1; i++)
+        {
+            array.A[i] = array.A[i + 1];
+        }
+        array.Length--;
+
+
 
     }
 
@@ -349,5 +364,138 @@ unsafe struct Array
     }
 
 
-    //I HAVE TO MAKE SHIFT AND ROTATE STILL!!!!!!!!!!!!!!!!
+    public void Difference(ref Array arrayA, ref Array arrayB, ref Array arrayC)
+    {
+        // 0 = teta
+        // 0(n + m)
+        int m = arrayA.A.Length;
+        int n = arrayB.A.Length;
+        int i = 0, j = 0, k = 0;
+        while (i < m && j < n)
+        {
+            if (arrayA.A[i] < arrayB.A[j])
+                arrayC.A[k++] = arrayA.A[i++];
+            else if (arrayB.A[j] < arrayA.A[i])
+                j++;
+            else
+            {
+                i++;
+                j++;
+            }
+        }
+        //append remaining elements, always 1 will be left 
+        for (; i < n; i++)
+            arrayC.A[k++] = arrayA.A[i];
+
+        arrayC.Length = k;
+        arrayC.Size = arrayA.Size + arrayB.Size;
+    }
+
+    //    A - B
+    public void DifferenceUnsorted(ref Array arrayA, ref Array arrayB, ref Array arrayC)
+    {
+        // 0 = teta
+        // 0(n + m)
+        int m = arrayA.Length;
+        int n = arrayB.A.Length;
+        arrayC.Length = arrayA.A.Length + arrayB.A.Length;
+        int i, j, k = 0;
+        for (i = 0; i < n; i++)
+        {
+            bool isThere = false;
+            for (j = 0; j < m; j++)
+            {
+                if (arrayA.A[i] == arrayB.A[j])
+                {
+                    isThere = true;
+                    break;
+                }
+            }
+            if (!isThere) arrayC.A[k++] = arrayA.A[i];
+        }
+
+        arrayC.Length = k;
+        arrayC.Size = arrayA.Size + arrayB.Size;
+    }
+
+    public void IntersectionUnsortedList(ref Array arrayA, ref Array arrayB, ref Array arrayC)
+    {
+        // 0 = teta
+        // 0(n + m)
+        int m = arrayA.Length;
+        int n = arrayB.A.Length;
+        arrayC.Length = arrayA.A.Length + arrayB.A.Length;
+        int i, j, k = 0;
+        for (i = 0; i < n; i++)
+        {
+            bool isThere = false;
+            for (j = 0; j < m; j++)
+            {
+                if (arrayA.A[i] == arrayB.A[j])
+                {
+                    isThere = true;
+                    break;
+                }
+            }
+            if (isThere) arrayC.A[k++] = arrayA.A[i];
+        }
+
+        arrayC.Length = k;
+        arrayC.Size = arrayA.Size + arrayB.Size;
+    }
+
+    public void UnionUnsorted(ref Array arrayA, ref Array arrayB, ref Array arrayC)
+    {
+        // 0 = teta
+        // 0(n + m)
+        int m = arrayA.Length;
+        int n = arrayB.A.Length;
+        arrayC.Length = arrayA.A.Length + arrayB.A.Length;
+        int i, j, k = 0;
+        for (i = 0; i < n; i++)
+        {
+            arrayC.A[k++] = arrayA.A[i];
+        }
+        for (i = 0; i < m; i++)
+        {
+            bool isThere = false;
+            for (j = 0; j < arrayC.A.Length; j++)
+            {
+                if (arrayB.A[i] == arrayB.A[j])
+                {
+                    isThere = true;
+                    break;
+                }
+            }
+            if (!isThere) arrayC.A[k++] = arrayA.A[i];
+        }
+
+        arrayC.Length = k;
+        arrayC.Size = arrayA.Size + arrayB.Size;
+    }
+
+
+    public void FindMissingElements(ref Array array)
+    {
+        //Max()
+        //Min()
+        int max = 0;
+        int min = 0;
+        int i;
+        for (i = 0; i < A.Length; i++)
+        {
+            if (max < (int)A[i]) max = (int)array.A[i];
+            if (min > (int)A[i]) min = (int)array.A[i];
+        }
+        int[] hash = new int[max + 1];
+        for (i = min; i < max; i++)
+        {
+            hash[(int)array.A[i]]++;
+            System.Console.WriteLine((int)array.A[i]);
+        }
+        for (i = min; i < max; i++)
+        {
+            if (hash[i] == 0) System.Console.WriteLine(i);
+        }
+    }
 }

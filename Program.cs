@@ -14,7 +14,7 @@
 
         unsafe
         {
-            Array array = new() { Length = 16, Size = 20 };
+            Array array = new() { Length = 20, Size = 20 };
             array.A = new int*[20];
             Array arrayB = new() { Length = 20, Size = 20 };
             arrayB.A = new int*[20];
@@ -62,9 +62,9 @@
             // array.Display();
             // System.Console.WriteLine();
             // //this insert works in case the input bigger than the elements inside.
-            array.InsertOnSorted(&array, 15);
-            array.InsertOnSorted(&array, 33);
-            array.InsertOnSorted(&array, 55);
+            // array.InsertOnSorted(&array, 15);
+            // array.InsertOnSorted(&array, 33);
+            // array.InsertOnSorted(&array, 55);
             // array.InsertOnSorted(&array, -55);
             // array.Set(6, -5552);
             // array.Set(8, 50);
@@ -74,16 +74,30 @@
             // array.Rearrange(ref array);
             // array.Display();
 
+            // array.Shift(ref array);
+            // array.Shift(ref array);
+            // array.Shift(ref array);
+            // array.Rotate(ref array);
+
             //you should use parameter to pass the third array, but i will use for time save
-            System.Console.WriteLine(array.A.Length);
+            // System.Console.WriteLine(array.A.Length);
             Array arrayC = new()
             {
-                A = new int*[array.Length + arrayB.A.Length]
+                A = new int*[array.A.Length + arrayB.A.Length]
             };
             // array.Merge(ref array, ref arrayB, ref arrayC);
             // array.Union(ref array, ref arrayB, ref arrayC);
-            array.Intersection(ref array, ref arrayB, ref arrayC);
+            // array.Intersection(ref array, ref arrayB, ref arrayC);
+            // array.Difference(ref array, ref arrayB, ref arrayC);
+            // array.DifferenceUnsorted(ref array, ref arrayB, ref arrayC);
+            // array.IntersectionUnsortedList(ref array, ref arrayB, ref arrayC);
+            // array.UnionUnsorted(ref array, ref arrayB, ref arrayC);
+            array.DELETE(ref array, 2);
+            array.DELETE(ref array, 5);
+            array.DELETE(ref array, 10);
+            array.FindMissingElements(ref array);
             array.Display(ref arrayC);
+            // array.Display(ref arrayC);
         }
 
 
