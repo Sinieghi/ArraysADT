@@ -66,8 +66,11 @@
             // array.InsertOnSorted(&array, 33);
             // array.InsertOnSorted(&array, 55);
             // array.InsertOnSorted(&array, -55);
+            // array.InsertOnSorted(&array, -55);
             // array.Set(6, -5552);
-            // array.Set(8, 50);
+            // array.Set(9, 19);
+            // array.Set(10, 19);
+            // array.Set(11, 19);
             // array.Set(11, -33);
             // //this boy check id the array is sorted
             // System.Console.WriteLine(array.CheckIfIsSorted(ref array));
@@ -85,19 +88,18 @@
             {
                 A = new int*[array.A.Length + arrayB.A.Length]
             };
-            // array.Merge(ref array, ref arrayB, ref arrayC);
+            array.Merge(ref array, ref arrayB, ref arrayC);
             // array.Union(ref array, ref arrayB, ref arrayC);
             // array.Intersection(ref array, ref arrayB, ref arrayC);
             // array.Difference(ref array, ref arrayB, ref arrayC);
             // array.DifferenceUnsorted(ref array, ref arrayB, ref arrayC);
             // array.IntersectionUnsortedList(ref array, ref arrayB, ref arrayC);
             // array.UnionUnsorted(ref array, ref arrayB, ref arrayC);
-            array.DELETE(ref array, 2);
-            array.DELETE(ref array, 5);
-            array.DELETE(ref array, 10);
-            array.FindMissingElements(ref array);
-            array.Display(ref arrayC);
-            // array.Display(ref arrayC);
+            arrayC.Set(11, 9996);
+            // array.DELETE(ref array, 2);
+            // array.DELETE(ref array, 5);
+            // array.DELETE(ref array, 10);
+
         }
 
 

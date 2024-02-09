@@ -475,27 +475,6 @@ unsafe struct Array
     }
 
 
-    public void FindMissingElements(ref Array array)
-    {
-        //Max()
-        //Min()
-        int max = 0;
-        int min = 0;
-        int i;
-        for (i = 0; i < A.Length; i++)
-        {
-            if (max < (int)A[i]) max = (int)array.A[i];
-            if (min > (int)A[i]) min = (int)array.A[i];
-        }
-        int[] hash = new int[max + 1];
-        for (i = min; i < max; i++)
-        {
-            hash[(int)array.A[i]]++;
-            System.Console.WriteLine((int)array.A[i]);
-        }
-        for (i = min; i < max; i++)
-        {
-            if (hash[i] == 0) System.Console.WriteLine(i);
-        }
-    }
+
+
 }
